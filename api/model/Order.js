@@ -30,7 +30,13 @@ const orderSchema = new mongoose.Schema(
         shippingPrice: { type: Number, required: true, deafult: 0.0 },
         totalPrice: { type: Number, required: true, default: 0.0 },
         isPaid: { type: Boolean, required: true, default: false },
-
+        paidAt: { type: Date },
+        isDelivered: { type: Boolean, required: true, default: false },
+        deliveredAt: { type: Date, required: true, default: false },
+        refund: { type: Number, required: true, default: false },
+        refundDate: { type: Date, required: true, deafult: false },
+        tiemstamps:{createdAt: 'createdAt', updatedAt : 'updatedAt', required : true},
     }
 );
+
 module.exports = mongoose.model(orderSchema, "Order");
