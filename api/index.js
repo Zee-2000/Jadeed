@@ -1,9 +1,10 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const app = express();
-const products = require("./data/Products");
+//const products = require("./data/Products");
 const mongoose = require('mongoose');
 const dataSetter = require('./dataSetter');
+const userRoute = require('./routes/User');
 const PORT = process.env.PORT
 dotenv.config();
 
@@ -21,6 +22,11 @@ mongoose.connect(process.env.MongoDB).then(()=>console.log('db connected')).then
 });
 //database setter
 app.use('/api/seed', dataSetter);
+
+//routes for users
+app.use(express.json());
+app.use('/api/users', userRoute)
+
 
 //Listen to the port
 app.listen(PORT,()=>
