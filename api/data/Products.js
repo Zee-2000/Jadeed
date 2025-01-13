@@ -4,19 +4,26 @@ const products =
   
   "name" : "Aller Aqua fish feed",
   "price" : "200 L.E",
-  "description" :"This fish feed is from Aller Aqua Company with 30% protein"
+  "description" :"This fish feed is from Aller Aqua Company with 30% protein",
+  "rating" : "5",
+  "countInStock" : "150"
+
 }, 
 {
   
   "name" : "Canal AquaCure KMnO4",
   "price" : "1000 L.E",
-  "description" :"Potassium Permenganate for Tank and pond Quarantine"
+  "description" :"Potassium Permenganate for Tank and pond Quarantine",
+  "rating" : "9",
+  "countInStock" : "10"
 },
  {
   
   "name" : "Fish tank",
   "price" : "900 L.E",
-  "description" :"With size 20 x 20 fits fingerlings"
+  "description" :"With size 20 x 20 fits fingerlings",
+  "rating" : "10",
+  "countInStock" : "1050"
 },
  {
   
