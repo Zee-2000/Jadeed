@@ -29,7 +29,7 @@ app.use('/api/users', userRoute)
 
 
 //Listen to the port
-app.listen(PORT,()=>
+app.listen(PORT || 3000,()=>
 {
  console.log("App is running")   
 });

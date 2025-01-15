@@ -15,10 +15,16 @@ const users =
             password: bcrypt.hashSync("123456", 10)
         },
         {
-            name:"User", 
-            age: 19, 
-            email: "admin@gmail.com", 
-            password : bcrypt.hashSync("000000", 10)
+            name: "User",
+            age: 19,
+            email: "admin@gmail.com",
+            password: bcrypt.hashSync("000000", 10)
+        },
+        {
+            name: "Reyam",
+            age: 13,
+            email: "reyam@gmail.com",
+            password: 3464839
         }
     ]
-    module.exports = users;
+module.exports = users;
