@@ -24,7 +24,7 @@ const users =
             name: "Reyam",
             age: 13,
             email: "reyam@gmail.com",
-            password: 3464839
+            password: bcrypt.hashSync("6528478", 10)
         }
     ]
 module.exports = users;
