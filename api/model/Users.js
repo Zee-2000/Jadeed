@@ -15,6 +15,7 @@ userSchema.methods.matchPassword = async function(enterPassword)
 {
     return await bcrypt.compare(enterPassword, this.password)
 }
+//register encryption
 userSchema.pre("save", async function(next)
 {
     if(!this.password.isModified(password))
