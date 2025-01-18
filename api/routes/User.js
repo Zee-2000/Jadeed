@@ -2,6 +2,7 @@ const userRoute = require('express').Router();
 const AsyncHandler = require('express-async-handler');
 const User = require('../model/Users')
 const generateToken = require('../generateToken');
+const authentication = require('../middleware/Auth');
 
 userRoute.post("/login",
     AsyncHandler(async (req, res) => {
@@ -50,4 +51,26 @@ userRoute.post("/",
 
     })
 );
+//profile data
+
+userRoute.get("/profile",
+    authentication,
+    AsyncHandler(async (req, res) => {
+        const user = await User.findById(req.user.id);
+        if (user) {
+            res.json(
+                {
+                    id: user.id,
+                    name: user.name,
+                    isAdmin: user.isAdmin,
+                    email: user.email,
+                    createdAt: user.createdAt
+                }
+            )
+        }
+        else {
+            res.status(404);
+            throw new Error("User isn't found")
+        }
+    }));
 module.exports = userRoute;
