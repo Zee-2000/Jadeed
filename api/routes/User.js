@@ -1,18 +1,19 @@
 const userRoute = require('express').Router();
 const AsyncHandler = require('express-async-handler');
 const User = require('../model/Users')
+const generateToken = require('../generateToken');
 
 userRoute.post("/login",
     AsyncHandler(async (req, res) => {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
         if (user && (await user.matchPassword(password))) {
-            res.json(
+            res.status(201).json(
                 {
-                    _id: user.id,
+                    id: user.id,
                     name: user.name,
                     isAdmin: user.isAdmin,
-                    token: null,
+                    token: generateToken(user.id),
                     createdAt: user.createdAt
                 }
             )
