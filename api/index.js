@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 const dataSetter = require('./dataSetter');
 const userRoute = require('./routes/User');
+const productRoute = require("./routes/Product");
 const PORT = process.env.PORT
 dotenv.config();
 
@@ -27,6 +28,8 @@ app.use('/api/seed', dataSetter);
 app.use(express.json());
 app.use('/api/users', userRoute)
 
+//routes for products
+app.use("products", productRoute);
 
 //Listen to the port
 app.listen(PORT || 3000,()=>
