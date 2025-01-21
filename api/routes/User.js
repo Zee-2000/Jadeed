@@ -26,7 +26,7 @@ userRoute.post("/login",
     })
 );
 
-userRoute.post("/",
+userRoute.post("/register",
     AsyncHandler(async (req, res) => {
         const { name, age, email, password } = req.body;
         const userExist = await User.findOne({ email });
@@ -39,7 +39,7 @@ userRoute.post("/",
             if (user) {
                 res.status(201).json(
                     {
-                        _id: user.id,
+                        id: user.id,
                         name: user.name,
                         isAdmin: user.isAdmin,
                         token: null,
@@ -73,4 +73,38 @@ userRoute.get("/profile",
             throw new Error("User isn't found")
         }
     }));
+
+    //update profile data
+    userRoute.put("/profile",authentication,
+        AsyncHandler(async(req, res)=>
+        {
+            const user = await User.findById(req.user.id);
+            if(user)
+            {
+                user.name = req.body.name || user.name;
+                user.email = req.body.email || user.email;
+                if(req.body.password)
+                {
+                    user.password = req.body.password;
+                }
+                //save changes
+                const updatedUser =  await user.save();
+                res.json(
+                    {
+                        id : updatedUser.id,
+                        name : updatedUser.name,
+                        email : updatedUser.email,
+                        isAdmin : updatedUser.isAdmin,
+                        token : generateToken(updatedUser.id),
+                        createdAt : updatedUser.createdAt
+                    }
+                )
+            }
+            else
+            {
+                res.status(404);
+                throw new Error("User isn't found")
+            }
+        })
+    );
 module.exports = userRoute;
