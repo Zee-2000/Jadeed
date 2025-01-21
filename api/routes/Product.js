@@ -4,9 +4,8 @@ const Product = require("../model/Products");
 
 //get all the products from database
 
-productRoute.get("/products", 
-    AsyncHandler(async(req, res)=>
-    {
+productRoute.get("/products",
+    AsyncHandler(async (req, res) => {
         const product = await Product.find({});
         res.json(product);
     })
