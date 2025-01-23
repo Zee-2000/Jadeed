@@ -36,7 +36,7 @@ app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute)
 
 //Listen to the port
-app.listen(PORT || 3000,()=>
+app.listen(PORT,()=>
 {
  console.log("App is running")   
 });

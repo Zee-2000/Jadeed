@@ -14,6 +14,7 @@ userRoute.post(
         _id: user.id,
         name: user.name,
         email: user.email,
+        password : user.password,
         isAdmin: user.isAdmin,
         token: generateToken(user._id),
         createdAt: user.createdAt,
