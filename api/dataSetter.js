@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const User = require('./model/Users');
-const users = require('./data/User');
+const users = require('./data/Users');
 const product = require('./model/Products');
 const products = require('./data/Products');
 const AsyncHandler = require('express-async-handler')

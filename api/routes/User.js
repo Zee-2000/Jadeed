@@ -1,7 +1,7 @@
 const userRoute = require("express").Router();
 const AsyncHandler = require("express-async-handler");
 const User = require("../model/Users");
-const generateToekn = require("../generateToken");
+const generateToken = require("../generateToken");
 const protect = require("../middleware/Auth");
 
 userRoute.post(
