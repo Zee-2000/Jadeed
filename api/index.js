@@ -29,21 +29,21 @@ app.use(express.json());
 app.use('/api/users', userRoute)
 
 //routes for products
-app.use("products", productRoute);
+app.use("/api/products", productRoute);
 
 //Listen to the port
 app.listen(PORT || 3000,()=>
 {
  console.log("App is running")   
 });
+
+
+
+
+
+
+
 //module.exports = products;
-
-
-
-
-
-
-
 //test api products
 /*app.get("/api/products", (req, res)=>
 {

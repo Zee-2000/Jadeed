@@ -1,20 +1,20 @@
-const products = 
+const product = 
 [
   {
   
   name : "Aller Aqua fish feed",
-  price : "200 L.E",
+  price : 200 ,
   description :"This fish feed is from Aller Aqua Company with 30% protein",
-  rating : "5",
-  countInStock : "150"
+  rating : 5,
+  countInStock : 150
 
 }, 
 {
   
   name : "Canal AquaCure KMnO4",
-  price : "1000 L.E",
+  price : 1000,
   description :"Potassium Permenganate for Tank and pond Quarantine",
-  rating : "9",
+  rating : 9,
   countInStock : "10"
 },
  {
@@ -29,8 +29,8 @@ const products =
   
   name : "Testosterne Hormone",
   price : "2000 L.E",
-  description :"For better fertilityto fish in your farm",
-  rating : "30",
+  description :"For better fertility for fish in your farm",
+  rating : "6",
   countInStock : "230"
 }, 
 {
@@ -38,7 +38,7 @@ const products =
   name : "Trammel Nets",
   price : "800 L.E",
   description :"To catch the fish in your farm , Length 30 x 30, can catch big fish only",
-  rating : "40",
+  rating : "4",
   countInStock : "890"
 }]
-module.exports = products;
+module.exports = product;
