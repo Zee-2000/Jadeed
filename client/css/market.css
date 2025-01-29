@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@plugin "flowbite/plugin";
+
 .items
 {
     background-position: 10px 12px;
