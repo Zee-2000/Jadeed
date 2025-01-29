@@ -40,22 +40,3 @@ app.listen(PORT,()=>
 {
  console.log("App is running")   
 });
-
-
-
-
-
-
-
-//module.exports = products;
-//test api products
-/*app.get("/api/products", (req, res)=>
-{
-    res.json(products);
-});
-//Find the id of the item
-app.get("/api/products/ :id", (req, res)=>
-{
-    const product = products.find((product)=>product.id === req.params.id)
-    res.json(product)
-});*/
