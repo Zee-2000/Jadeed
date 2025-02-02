@@ -1,4 +1,5 @@
-import Layout from "../Layouts/Layout"
+import Layout from "../Layouts/Layout";
+import '../css/ProductDetail.css';
 
 function ProductDetail() {
 
@@ -40,4 +41,4 @@ function ProductDetail() {
     )
   }
   
-  export default ProductDetail
+  export default ProductDetail;
