@@ -7,7 +7,8 @@ const dataSetter = require('./dataSetter');
 const userRoute = require('./routes/User');
 const productRoute = require("./routes/Product");
 const orderRoute = require('./routes/Order');
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
+const cors = require('cors');
 dotenv.config();
 
 //test route
@@ -27,6 +28,7 @@ app.use('/api/seed', dataSetter);
 
 //routes for users
 app.use(express.json());
+app.use(cors())
 app.use('/api/users', userRoute)
 
 //routes for products
