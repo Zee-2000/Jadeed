@@ -16,5 +16,6 @@ const rootReducer = combineReducers({
 const middleware = { thunk };
 const persistedStore = persistReducer(persistConfig, rootReducer);
 
-export const store = createStore(persistReducer, applyMiddleware(thunk));
-export let persister = persistedStore(store);
+const store = createStore(persistReducer, applyMiddleware(thunk));
+let persister = persistedStore(store);
+export {store, persister}
