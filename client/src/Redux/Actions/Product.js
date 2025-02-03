@@ -5,9 +5,9 @@ import {
     PRODUCT_LIST_REQ_FAIL, 
     PRODUCT_DETAIL_REQ,
     PRODUCT_DETAIL_REQ_SUCCESS,
-    PRODUCT_DETAIL_REQ_FAIL,
-}from "../Contents/Product";
-import BASE_URL from "../Contents/BASE_URL";
+    PRODUCT_DETAIL_REQ_FAIL
+}from '/src/Redux/Contents/Product.js';
+import {BASE_URL} from "../Contents/BASE_URL";
 
 export const productListAction = ()=>async(dispatch)=>
 
