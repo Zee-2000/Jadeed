@@ -2,21 +2,20 @@ import axios from "axios";
 import {
     PRODUCT_LIST_REQ,
     PRODUCT_LIST_REQ_SUCCESS,
-    PRODUCT_DETAIL_REQ_FAIL, 
+    PRODUCT_LIST_REQ_FAIL, 
     PRODUCT_DETAIL_REQ,
     PRODUCT_DETAIL_REQ_SUCCESS,
     PRODUCT_DETAIL_REQ_FAIL,
-    PRODUCT_LIST_REQ_FAIL
 }from "../Contents/Product";
-import BASE_URL from "../Contents/BASE_URL"
+import BASE_URL from "../Contents/BASE_URL";
 
-export const productListAction = ()=> async(dispatch)=>
+export const productListAction = ()=>async(dispatch)=>
 
 {
     try
     {
         dispatch({type : PRODUCT_LIST_REQ});
-    const{data} = await axios.get(`${BASE_URL}/api/products`);
+        const { data } = await axios.get(`${BASE_URL}/api/products`);
 
     dispatch({type : PRODUCT_LIST_REQ_SUCCESS, payload : data});
     }catch

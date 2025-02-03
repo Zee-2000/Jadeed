@@ -1,23 +1,26 @@
-import { Children, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import '../src/css/market.css'
-import Login from './Layouts/Login'
-import SignUp from './Layouts/SignUp'
-import Layout from './Layouts/Layout'
-import Product from './components/Product'
+import ProductDetail from './pages/ProductDetail';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import Home from './pages/Home';
+
 
 function App() {
 
 
   return (
     <>
-      <Layout>
-        <Product>
-          
-        </Product>
-      </Layout>
+      <Router>
+        <Routes>
+          <Route exact path='/home' element={<Home/>}></Route>
+          <Route exact path='/detail' element={<ProductDetail />}></Route>
+
+        </Routes>
+      </Router>
     </>
   )
 }

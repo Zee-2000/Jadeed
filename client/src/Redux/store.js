@@ -1,19 +1,19 @@
-import {combineReducers} from "redux";
-import {presistStore, presistReducer} from "redux-persist";
-import { ProductListReducer, ProductReducer } from "./Reducers/Product";
- 
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist'
+import { productListReducer, productReducer } from "./Reducers/Product";
+import { thunk } from "redux-thunk";
 const persistConfig = {
-    key: 'root',
-    storage,
-    version:1
-  }
+  key: 'root',
+  storage,
+};
 
-  const rootReducer = combineReducers({
-    ProductListReducer,
-    ProductReducer
-  }); 
+const rootReducer = combineReducers({
+  productListReducer,
+  productReducer
+});
 
-  const presistReducer = presistReducer(persistConfig, rootReducer);
+const middleware = { thunk };
+const persistedStore = persistReducer(persistConfig, rootReducer);
 
-  export const store = createStore(presistReducer);
-  export let presister = presistStore(store);
+export const store = createStore(persistReducer, applyMiddleware(thunk));
+export let persister = persistedStore(store);

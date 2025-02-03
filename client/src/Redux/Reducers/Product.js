@@ -7,14 +7,14 @@ import {
     PRODUCT_DETAIL_REQ_FAIL
 } from "../Contents/Product";
 //for product list
-export const ProductListReducer = (state = { products: [] }, action) => {
+export const productListReducer = (state = { products: [] }, action) => {
     switch (action.type) {
         case (PRODUCT_LIST_REQ):
             return({
             loading: true, products : []
         })
         case (PRODUCT_LIST_REQ_SUCCESS):
-            return ({loading : false , products : action.payload.products, totalPage : action.payload.totalPage, page : action.payload.page});
+            return ({loading : false , products : action.payload.products, totalPages : action.payload.totalPages, page : action.payload.page});
         case (PRODUCT_LIST_REQ_FAIL):
             return ({ loading: false, error: action.payload.error })
         default:
@@ -23,7 +23,7 @@ export const ProductListReducer = (state = { products: [] }, action) => {
 }
 
 //for single products
-export const ProductReducer = (state = { product: {reviews :[]} }, action) => {
+export const productReducer = (state = { product: {reviews :[]} }, action) => {
     switch (action.type) {
         case (PRODUCT_DETAIL_REQ):
             return({
