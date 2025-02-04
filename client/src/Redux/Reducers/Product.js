@@ -14,12 +14,12 @@ export const productListReducer = (state = { products: [] }, action) => {
     switch (action.type) {
         case PRODUCT_LIST_REQ:
             return {
-                loading: true, products: [] , 
-                
+                loading: true, products: [],
+
             };
         case PRODUCT_LIST_REQ_SUCCESS:
             return {
-                loading:false, products: action.payload, totalPage: action.payload.totalPage, page:action.payload.page
+                loading: false, products: action.payload, totalPage: action.payload.totalPage, page: action.payload.page
             }
         case PRODUCT_LIST_REQ_FAIL:
             return { loading: false, error: action.payload.error }
@@ -29,7 +29,7 @@ export const productListReducer = (state = { products: [] }, action) => {
 }
 
 // single product by id
-export const productReducer = (state = { product: {reviews:[]} }, action) => {
+export const productReducer = (state = { product: { reviews: [] } }, action) => {
     switch (action.type) {
         case PRODUCT_DETAIL_REQ:
             return {

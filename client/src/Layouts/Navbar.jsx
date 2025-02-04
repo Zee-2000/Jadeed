@@ -3,7 +3,7 @@ const Navbar = () =>
 {
     return(
         <>
-        <div class="navbar">
+        <div className="navbar">
     <a href="home.html">Home</a>
     <a href="market.html">Market</a>
     <a href="prices.html">Prices</a>
