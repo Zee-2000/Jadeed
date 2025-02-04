@@ -1,20 +1,29 @@
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import {storage} from "redux-persist/lib/storage";
-import {persistStore, persistReducer} from "redux-persist";
-import { version } from "react";
+import storage from "redux-persist/lib/storage"; // Correct import style
+import { persistStore, persistReducer } from "redux-persist";
 import { productListReducer, productReducer } from "./Reducers/Product";
+
 const persistConfig = {
-  key : "root",
+  key: "root",
   storage,
-  version : "1.0"
-}
+  version: 1, // Version should be a number
+};
 
-const rootReducer = combineReducers(
-  productListReducer,
-  productReducer
-);
+const rootReducer = combineReducers({ // Pass an object to combineReducers
+  productList: productListReducer,  // Give reducers keys! Important!
+  product: productReducer,         // Give reducers keys! Important!
+});
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-export const store = configureStore(persistedReducer);
-export let persistor = persistStore(store);
+const persistedReducer = persistReducer(persistConfig, rootReducer); // Correct usage
+
+const store = configureStore({
+  reducer: persistedReducer, // Use the persisted reducer here
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false, // or your serialization check configuration
+  }),
+});
+
+const persistor = persistStore(store);
+
+export { store, persistor };

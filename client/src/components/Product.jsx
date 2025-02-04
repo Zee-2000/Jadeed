@@ -1,6 +1,6 @@
-const Product = () =>
+const Product = ()=>
 {
-  return (
+  return(
     <>
        
   <input type="text" class="items" placeholder="Search for items"/>
@@ -39,5 +39,4 @@ const Product = () =>
 </div>
     </>
   )
-};
-export default Product
+}
