@@ -1,4 +1,4 @@
-import './App.css'
+
 import '../src/css/market.css'
 import ProductDetail from './pages/ProductDetail';
 import {
@@ -16,7 +16,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path='/home' element={<Home/>}></Route>
+          <Route exact path='/' element={<Home/>}></Route>
           <Route exact path='/detail' element={<ProductDetail />}></Route>
 
         </Routes>

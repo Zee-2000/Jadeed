@@ -1,21 +1,11 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist'
-import { productListReducer, productReducer } from "./Reducers/Product";
-import { thunk } from "redux-thunk";
-import {storage} from "redux-persist/lib/storage"
+import { combineReducers } from "redux";
+import {storage} from "redux-persist/lib/storage";
+import {persistStore, persistReducer} from "redux-persist";
+import { version } from "react";
 const persistConfig = {
-  key: 'root',
-  storage
-};
+  key : "root",
+  storage,
+  version : "1.0"
+}
 
-const rootReducer = combineReducers({
-  productListReducer,
-  productReducer
-});
-
-const middleware = { thunk };
-const persistedStore = persistReducer(persistConfig, rootReducer);
-
-const store = createStore(persistReducer, applyMiddleware(thunk));
-let persister = persistedStore(store);
-export {store, persister}
+const rootReducer = combineReducers
